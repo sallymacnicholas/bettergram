@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
-  get '/auth/instagram/callback', to: 'sessions#create'
-  get '/dashboard', to: 'dashboard#show'
-  get '/dashboard/users/self/feed', to: 'dashboard#index'
-  get '/profile', to: 'profile#show'
-  get '/auth/instagram', as: :login
-  delete '/logout', as: :logout, to: 'sessions#destroy'
   root 'home#show'
+
+  get '/auth/instagram', as: :login
+  get '/auth/instagram/callback', to: 'sessions#create'
+  delete '/logout', as: :logout, to: 'sessions#destroy'
+
+  resources :dashboard, only: [:index, :show]
+
+  resources :popular_media, only: [:index]
+
+  get '/profile', to: 'profile#show'
+
+  resources :stats, only: [:index]
 end
