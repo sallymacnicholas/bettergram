@@ -1,9 +1,10 @@
 <nav class="top-bar" data-topbar>
   <section class="top-bar-section">
     <ul class="center-buttons">
-      <!-- <li><a id="bettergram" href=root_path>Bettergram</a></li> -->
-      <li> <%= link_to 'Bettergram', dashboard_users_self_feed_path, id:"bettergram" %></li>
+      <li> <%= link_to 'Bettergram', dashboard_feed_path, id:"bettergram" %></li>
       <li> <%= link_to 'search bar' %></li>
+      <li> <%= link_to 'my feed', dashboard_feed_path %></li>
+      <li> <%= link_to 'trending', dashboard_trending_path %></li>
       <li> <%= link_to 'Log out', logout_path, method: :delete %></li>
       <li class="divider"></li>
       <li class="divider"></li>
@@ -16,55 +17,25 @@
     <div class="row">
       <div class="profile-card">
         <div class="small-6 large-4 columns">
-          <%= image_tag current_user.image %>
+          <%= image_tag post_user_pic(@id, @profile_client)%>
         </div>
         <div class="small-12 large-8 columns">
-          <h3><%= current_user.username %>&nbsp; <span id='wtf'> <%= link_to 'EDIT PROFILE', "https://instagram.com/accounts/edit/" %></span></h3></div>
-        <div class="small-12 large-8 columns">
-          <p><%= current_user.client.user.bio %></p>
-          <p id="blue-site"><%= current_user.website %></p>
-          <% if current_user.client_user.bio.empty? %>
-            <br>
-          <% end %>
-        </div>
-        <div class="small-12 large-8 columns">
-          <span><strong> <%= current_user.client_user['counts']['media'] %></strong> posts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            <span><strong> <%= current_user.client_user['counts']['followed_by'] %></strong> followers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            <span><strong> <%= current_user.client_user['counts']['follows'] %></strong> following&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            <span><strong> <%= link_to 'view stats', stats_path %></strong></span></p>
+          <h3><%= post_user_username(@id, @profile_client) %></h3>
         </div>
       </div>
     </div>
   </div>
 </div>
-<div>
 
-  <div class="row">
-    <% current_user.posts.each do |media| %>
-      <div class="small-4 columns">
-        <div class="item-wrapper">
-          <div class="img-wrapper">
-            <%= image_tag media["images"]["low_resolution"].url %>
-            <a class="button" href="<%= dashboard_path %>" zf-open="advancedModal">Open modal</a>
-            <div zf-modal="" id="advancedModal" class="collapse">
-              <div class="grid-block vertical">
-                <div class="primary title-bar">
-                  <div class="center title"><%= media.username %></div>
-                  <span zf-close="" class="left"><a>Close</a></span>
-                  <span zf-close="" class="right"><a>Done</a></span>
-                </div>
-                <div class="grid-content padding" style="padding-top: 1rem;">
-                  <p>
-                    <img src="<%= media.images.low_resolution.url %>">
-                  </p>
-                  <a zf-close="" class="button">OK</a>
-                  <a zf-close="" class="button">Cancel</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <br>
+<div class="row">
+  <% current_user.profile_posts(@id).each do |feed_item| %>
+    <div class="small-4 columns">
+      <div class="item-wrapper">
+        <div class="img-wrapper">
+          <%= image_tag low_img(feed_item) %>
         </div>
+        <br>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+</div>

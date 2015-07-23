@@ -1,6 +1,0 @@
-<p>comments from last picture</p>
-<%= image_tag client.user_recent_media.first["images"]["standard_resolution"].url %>
-<% @something.user_recent_media.first["comments"]["data"].each do |media| %>
-
-<p><%= media.from.username %>: <%= media.text %></p><br>
-<% end %></div>
