@@ -1811,20 +1811,18 @@ a {
 .top-bar-section ul li:hover:not(.has-form) > a {
   color: pink;
 }
-.top-bar-section ul li:hover:not(.has-form) > a:active {
+.top-bar-section ul li:hover:not(.has-form):active > a {
   color: green;
   text-decoration: underline;
+}
+.top-bar-section ul li > a:active {
+  color:green;
+text-decoration: underline;
 }
 
 .feed-link {
   background: blue;
   text-align: center;
-}
-
-.top-bar-section {
-  a:hover {
-    background: pink;
-  }
 }
 
 #username {

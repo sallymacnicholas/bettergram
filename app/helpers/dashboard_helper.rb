@@ -26,4 +26,8 @@ module DashboardHelper
   def post_user_username(id, profile_client)
     profile_client.user_recent_media(id).first.caption.from.username
   end
+
+  def caption_id(feed_item)
+    "item-" + feed_item.caption.id
+  end
 end
