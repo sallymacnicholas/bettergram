@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'dashboard/feed', to: 'dashboard#index'
   get 'dashboard/trending', to: 'dashboard#trending'
   get '/profile', to: 'profile#show'
+  resources :dashboard, only: [:show]
+
 
   delete '/logout', as: :logout, to: 'sessions#destroy'
 

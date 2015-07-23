@@ -1770,10 +1770,10 @@ $topbar-bg: $topbar-bg-color;
     border-top: 1px solid rgba(160, 160, 160, 0.2);
     padding: 1.3rem; }
   .card a {
-    color: #ffab40;
+    color: #125688;
     margin-right: 1.3rem;
     transition: color 0.3s ease;
-    text-transform: uppercase;
+    text-transform: lowercase;
     text-decoration: none; }
   .card .image {
     position: relative; }
@@ -1843,4 +1843,32 @@ h6 {
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
+}
+
+.profile-pic-medium {
+  background-color: #fbfbfb;
+  border-radius: 50%;
+  border: 1px solid #cccfd0;
+  box-sizing: border-box;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+#profile-data {
+  padding-right: 40px;
+}
+
+.company-image {
+}
+.company-image-overlay {
+  width: 160px;
+  height: 160px;
+  background-color: #ffb00f;
+  border-radius: 15px;
+  z-index: 1;
+  opacity: 0.5;
+  position: fixed;
+  top: 0.5em;
+  display:none;
 }

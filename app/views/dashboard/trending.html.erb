@@ -4,18 +4,33 @@
     <div class="large-4 columns">
       <div class="card">
         <% if feed_item.caption %>
-          <span class="title"><%= feed_item["caption"]["from"]["username"] %></span>
+          <span class="title"><%= image_tag profile_picture(feed_item), height:'30', width:'30', class:"profile-pic-small" %>&nbsp;<%= link_to username(feed_item), dashboard_path(feed_item.user.id) %></span>
           <div class="image">
-            <%= image_tag feed_item["images"]["low_resolution"].url %>
-          </div>
-          <div class="content">
-            <p> <strong><%= feed_item.likes["count"] %> likes</strong>
-            <p><strong><%= feed_item.caption.from.username %></strong>  <%= truncate(feed_item["caption"].text, length: 250, omission: '...(continued)') %></p>
-            <p> <% if feed_item["caption"].text.length < 250 %>
-                <% feed_item.comments.data.first(2).each do |comment| %>
-                  <strong><%= comment.from.username %></strong>  <%= comment.text %> <% end %> </p>
-              <% end %>
+            <a href="" data-reveal-id="<%= username(feed_item) %>"><%= image_tag low_img(feed_item) %></a>
+            <div id="<%= username(feed_item) %>" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+              <div class="large-8 columns">
+                <%= image_tag stand_img(feed_item) %><br>
               </div>
+              <div class="large-4 columns">
+                <%= image_tag profile_picture(feed_item), height:'60', width:'60', class:"profile-pic-medium" %>
+                <h6 id="username_big"><%= username(feed_item) %></h6>
+                <p id="likes"><%= likes(feed_item) %> likes</p>
+                <% feed_item.comments.data.each do |comment| %>
+                  <strong id="username"><%= comment.from.username %></strong>  <%= comment.text %><br>
+                <% end %>
+              </div>
+              <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+            </div>
+          </div>
+          <div class="content"><span>
+            <p id="likes"><strong><%= likes(feed_item) %> likes</strong></p>
+            <p><strong id="username"><%= username(feed_item) %></strong>  <%= truncate(feed_item["caption"].text, length: 250, omission: '...(continued)') %></p>
+              <% if feed_item.caption.text.length < 250 %>
+                <% feed_item.comments.data.first(2).each do |comment| %>
+                  <strong><%= comment.from.username %></strong>  <%= comment.text %><br>
+                <% end %>
+              <% end %>
+              </span></div>
         <% end %>
         <div class="action">
           <%= image_tag '2764.png', height:'20', width: '20'%> Add a comment...
@@ -25,3 +40,4 @@
     </div>
   <% end %>
 </div>
+
