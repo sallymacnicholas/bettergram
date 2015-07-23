@@ -1,9 +1,7 @@
 class DashboardController < ApplicationController
-  def show
-
+  def index
   end
 
-  def index
-
+  def trending
   end
 end

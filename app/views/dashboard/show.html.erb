@@ -45,23 +45,6 @@
         <div class="item-wrapper">
           <div class="img-wrapper">
             <%= image_tag media["images"]["low_resolution"].url %>
-            <a class="button" href="<%= dashboard_path %>" zf-open="advancedModal">Open modal</a>
-            <div zf-modal="" id="advancedModal" class="collapse">
-              <div class="grid-block vertical">
-                <div class="primary title-bar">
-                  <div class="center title"><%= media.username %></div>
-                  <span zf-close="" class="left"><a>Close</a></span>
-                  <span zf-close="" class="right"><a>Done</a></span>
-                </div>
-                <div class="grid-content padding" style="padding-top: 1rem;">
-                  <p>
-                    <img src="<%= media.images.low_resolution.url %>">
-                  </p>
-                  <a zf-close="" class="button">OK</a>
-                  <a zf-close="" class="button">Cancel</a>
-                </div>
-              </div>
-            </div>
           </div>
           <br>
         </div>

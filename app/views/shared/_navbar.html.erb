@@ -1,11 +1,11 @@
 <nav class="top-bar" data-topbar>
   <section class="top-bar-section">
     <ul class="center-buttons">
-      <li><li> <%= link_to 'Bettergram', dashboard_users_self_feed_path, id:"bettergram" %></li></li>
+      <li><li> <%= link_to 'Bettergram', dashboard_feed_path, id:"bettergram" %></li></li>
       <li> <%= link_to 'search bar' %></li>
-      <li> <%= link_to current_user.username, dashboard_path %></li>
-      <li class="divider"></li>
-      <li class="divider"></li>
+      <li> <%= link_to current_user.username, profile_path %></li>
+      <li> <%= link_to 'my feed', dashboard_feed_path %></li>
+      <li> <%= link_to 'trending', dashboard_trending_path %></li>
     </ul>
   </section>
 </nav>

@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
     if @user
       session[:user_id] = @user.id
-      redirect_to dashboard_users_self_feed_path
+      redirect_to profile_path
     else
       redirect_to root_path
     end

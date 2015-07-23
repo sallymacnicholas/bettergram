@@ -1612,10 +1612,11 @@ $topbar-bg: $topbar-bg-color;
     font-weight: n;
     padding-bottom: 50px;
     padding: 10px 400px;
-    width: 300px;
+    width: 200px;
     color: #125688;
     background: 0 0;
   }
+
 
   .bump {
     padding-right: 30px;
@@ -1748,7 +1749,7 @@ $topbar-bg: $topbar-bg-color;
     border-radius: 2px;
   }
   .card .title {
-    line-height: 2rem;
+    line-height: 3rem;
     font-size: 1.5rem;
     font-weight: 600;
     font-size: 12px;
@@ -1782,8 +1783,7 @@ $topbar-bg: $topbar-bg-color;
     left: 0;
     padding: 1.3rem;
     color: #fff; }
-  .card .image img {
-    border-radius: 2px 2px 0 0; }
+
   #bettergram {
     font-family: 'Lobster Two', Helvetica, sans-serif;
     font-size: 30px;
@@ -1799,9 +1799,7 @@ a {
   line-height: inherit;
   text-decoration: none;
 }
-ul:hover {
-  background-color: yellow;
-}
+
 @media only screen and (min-width: 40.0625em) {
   .top-bar-section li:not(.has-form) a:not(.button):hover {
     background-color: white;
@@ -1809,5 +1807,40 @@ ul:hover {
   }
 }
 .top-bar-section ul li:hover:not(.has-form) > a {
-  color: #4b4f54;
+  color: pink;
+}
+.top-bar-section ul li:hover:not(.has-form) > a:active {
+  color: green;
+  text-decoration: underline;
+}
+
+.feed-link {
+  background: blue;
+  text-align: center;
+}
+
+.top-bar-section {
+  a:hover {
+    background: pink;
+  }
+}
+
+#username {
+  color: #125688;
+}
+h6 {
+  color: #125688;
+  font-size: 30px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #4b4f54;
+}
+
+.profile-pic-small {
+  background-color: #fbfbfb;
+  border-radius: 50%;
+  border: 1px solid #cccfd0;
+  box-sizing: border-box;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
