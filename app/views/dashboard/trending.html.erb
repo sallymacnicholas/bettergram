@@ -27,7 +27,7 @@
             <p><strong id="username"><%= username(feed_item) %></strong>  <%= truncate(feed_item["caption"].text, length: 250, omission: '...(continued)') %></p>
               <% if feed_item.caption.text.length < 250 %>
                 <% feed_item.comments.data.first(2).each do |comment| %>
-                  <strong><%= comment.from.username %></strong>  <%= comment.text %><br>
+                  <p><strong id="username"><%= comment.from.username %></strong>  <%= comment.text %></p>
                 <% end %>
               <% end %>
               </span></div>

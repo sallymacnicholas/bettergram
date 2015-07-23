@@ -1,7 +1,6 @@
 <%= render 'shared/navbar' %>
 <div class="row">
   <% current_user.feed.each do |feed_item| %>
-    <%= binding.pry %>
     <div class="large-4 columns">
       <div class="card">
         <% if feed_item.caption %>
