@@ -1748,6 +1748,10 @@ $topbar-bg: $topbar-bg-color;
     color: #4b4f54;
     border-radius: 2px;
   }
+  .card .time-title {
+    font-size: 9px;
+    text-align: right;
+  }
   .card .title {
     line-height: 3rem;
     font-size: 1.5rem;
@@ -1755,6 +1759,7 @@ $topbar-bg: $topbar-bg-color;
     font-size: 12px;
     color: #125688;
     padding-left: 5px;
+    padding-right: 0px;
   }
   .card .content {
     padding: 1.3rem;

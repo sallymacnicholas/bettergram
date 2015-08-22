@@ -7,7 +7,7 @@
           <span class="title"><%= image_tag profile_picture(feed_item), height:'30', width:'30', class:"profile-pic-small" %>&nbsp;<%= link_to username(feed_item), dashboard_path(feed_item.user.id) %></span>
           <div class="image">
             <a href="" data-reveal-id="<%= caption_id(feed_item) %>"><%= image_tag low_img(feed_item) %></a>
-            <div id="<%= caption_id(feed_item) %>" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+            <div id="<%= username(feed_item) %>" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
               <div class="large-8 columns">
                 <%= image_tag stand_img(feed_item) %><br>
               </div>

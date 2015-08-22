@@ -1,5 +1,6 @@
 class DashboardController < ApplicationController
   def index
+    @next_images = Instagram.client(access_token: current_user.token).user_media_feed.pagination.next_max_id
   end
 
   def trending
